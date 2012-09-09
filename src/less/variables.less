@@ -1,0 +1,69 @@
+// Variables.less
+// Variables to customize the look and feel of Bootstrap
+// -----------------------------------------------------
+
+// GLOBAL VALUES
+// --------------------------------------------------
+
+@baseImgDir:            "../media/"; //this is relative to the compiled css file
+
+//COLORS
+// ---------------------------------------------------
+@blueLight:             #2d81a7;
+@blueMed:               #29475e;
+@blueBaby:              #aadcff;
+@blueCrumb:             #2b4d64;
+
+@redSuperDark:          #4b0d09;
+@redDark:               #aa051a;
+@redMedium:             #903d36;
+@red:                   #862E27;
+@redNav:                #812a25;
+
+@graySuperLight:        #dedede;
+@grayLight:             #a3a3a3;
+@grayMedium:            #898989;
+@grayMedDark:           #525150;
+@grayDark:              #393939;
+
+@tanUltraLight:         #e5e5d0;
+@tanSuperLight:         #c3c39e;
+@tanLight:              #ddddc3;
+@tanDark:               #d3d2c5;
+
+// SPRITES
+.main-sprite( @x: 0, @y: 0, @bgColor: transparent, @noRepeat: no-repeat ){
+  background: url( "@{baseImgDir}main-sprite.1.0.png" ) @x @y @bgColor @noRepeat;
+}
+
+// BACKGROUNDS
+// ---------------------------------------------------
+.dark-blue-example {
+  background: #2b4e62; /* Old browsers */
+  background: -moz-linear-gradient(top,  #2b4e62 0%, #1c1e35 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#2b4e62), color-stop(100%,#1c1e35)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #2b4e62 0%,#1c1e35 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #2b4e62 0%,#1c1e35 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #2b4e62 0%,#1c1e35 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #2b4e62 0%,#1c1e35 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b4e62', endColorstr='#1c1e35',GradientType=0 ); /* IE6-9 */
+}
+
+.gradient-white {
+  #gradient > .vertical( #fdfdfd, #f2f2e8 );
+}
+
+ // GRID
+// --------------------------------------------------
+
+// Default 940px grid
+// -------------------------
+@gridColumns: 16;
+@gridColumnWidth: 40px;
+@gridGutterWidth: 20px;
+@gridRowWidth: (@gridColumns * @gridColumnWidth) + (@gridGutterWidth * (@gridColumns - 1));
+
+// Fluid grid
+// -------------------------
+@fluidGridColumnWidth: 6.382978723%;
+@fluidGridGutterWidth: 2.127659574%;

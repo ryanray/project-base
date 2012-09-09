@@ -1,0 +1,8 @@
+{
+  "name": "noder-css-js",
+  "version": "0.0.0",
+  "dependencies" : {
+  	"grunt-handlebars": ">0.0.0",
+    "grunt-less":  ">0.0.0"
+  }
+}

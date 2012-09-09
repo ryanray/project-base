@@ -1,0 +1,21 @@
+doctype 5
+head
+  title #{title}
+  block css
+    link(rel="stylesheet",href="/css/main.min.css")
+
+body
+  div.page-wrapper
+    div.container
+      header#hd
+        div.logo-wrapper
+          img(src='/media/logo.png')
+        div.mod.panel-a
+
+      div#bd
+
+      div#ft
+        div.row.bg-lightTan
+      
+      block scripts
+        script(src="/js/site.min.js")
