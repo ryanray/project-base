@@ -1,12 +1,14 @@
 module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-test');
-  // grunt.loadNpmTasks('grunt-contrib-copy');
-  // grunt.loadNpmTasks('grunt-blanket');
 
   // Project configuration.
   grunt.initConfig({
+    src: {
+      all: ['Gruntfile.js', 'app.js', 'controllers/**/*.js', 'lib/**/*.js', 'models/**/*.js', 'test/**/*.js']
+    },
     jshint: {
       options: {
         curly: true,
@@ -32,7 +34,7 @@ module.exports = function(grunt) {
         }
       },
       all: {
-        src: ['Gruntfile.js', 'app.js', 'controllers/**/*.js', 'lib/**/*.js', 'models/**/*.js', 'test/**/*.js']
+        src: '<%= src.all %>'
       }
     },
     mochaTest: {
@@ -42,6 +44,12 @@ module.exports = function(grunt) {
           require: []
         },
         src: ['test/**/*.js']
+      }
+    },
+    watch: {
+      scripts: {
+        files: '<%= src.all %>',
+        tasks: ['default']
       }
     }
   });
