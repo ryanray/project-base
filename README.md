@@ -1,2 +1,2 @@
-project-base
-============
+rate-quote
+==========
