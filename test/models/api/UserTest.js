@@ -1,12 +1,12 @@
-var assert = require("assert");
+var should = require('should');
 var User = require('../../../models/api/User.js');
 
 //Syncronous example
 describe('Array', function(){
   describe('#indexOf()', function(){
     it('should return -1 when the value is not present', function(){
-      assert.equal(-1, [1,2,3].indexOf(5));
-      assert.equal(-1, [1,2,3].indexOf(0));
+      (-1).should.equal([1,2,3].indexOf(5));
+      (-1).should.equal([1,2,3].indexOf(0));
     });
   });
 });
@@ -23,9 +23,8 @@ describe('Create User', function(){
         }
       };
       User.create(mockUser.name.first, mockUser.name.last, function(user){
-        console.log(user);
-        assert.equal(mockUser.name.first, user.name.first);
-        assert.equal(mockUser.name.last, user.name.last);
+        (user.name.first).should.equal(mockUser.name.first);
+        (user.name.last).should.equal(mockUser.name.last);
         done();
       });
     });
