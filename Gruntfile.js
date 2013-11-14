@@ -1,5 +1,6 @@
 module.exports = function(grunt) {
 
+  grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-test');
@@ -8,6 +9,18 @@ module.exports = function(grunt) {
   grunt.initConfig({
     src: {
       all: ['Gruntfile.js', 'app.js', 'controllers/**/*.js', 'lib/**/*.js', 'models/**/*.js', 'test/**/*.js']
+    },
+    jade: {
+      client: {
+        options: {
+          client: true,
+          compileDebug: false,
+          amd: false
+        },
+        files: {
+          "public/js/templates/templates.js": "views/**/*.jade"
+        }
+      }
     },
     jshint: {
       options: {
@@ -55,5 +68,5 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['jshint', 'mochaTest']);
+  grunt.registerTask('default', ['jshint', 'mochaTest', 'jade']);
 };

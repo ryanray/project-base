@@ -2,6 +2,13 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.2.3.2.min.css')
   body
     block content
+
+  //TODO: combine all these into one file
+  script(src="/js/vendor/jquery.1.10.2.min.js")
+  script(src="/js/vendor/bootstrap.2.3.2.min.js")
+  script(src="/js/vendor/jade.runtime.0.35.js")
+  script(src="/js/templates/templates.js")
+  script(src="/js/lib/init.js")

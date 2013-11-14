@@ -1,5 +1,11 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.navbar
+    div.navbar-inner
+      div.container
+        a.brand(href="/") #{title}
+  div.container
+    div.row
+      div.span12
+        div(ng-view)
