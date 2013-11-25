@@ -1,7 +1,10 @@
 module.exports = function(grunt) {
 
+  //TODO: uglify JS
+
   grunt.loadNpmTasks('grunt-contrib-jade');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-mocha-test');
 
@@ -50,6 +53,17 @@ module.exports = function(grunt) {
         src: '<%= src.all %>'
       }
     },
+    less: {
+      production: {
+        options: {
+          // paths: ["assets/css"],
+          cleancss: true
+        },
+        files: {
+          "public/css/site.min.css": "FED/less/main.less"
+        }
+      }
+    },
     mochaTest: {
       test: {
         options: {
@@ -60,6 +74,10 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+      less: {
+        files: 'FED/less/**/*.less',
+        tasks: ['compileCSS']
+      },
       scripts: {
         files: '<%= src.all %>',
         tasks: ['default']
@@ -67,6 +85,9 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask('compileCSS', ['less']);
+
+  grunt.registerTask('compileTemplates', ['jade', 'uglify']);
   // Default task.
-  grunt.registerTask('default', ['jshint', 'mochaTest', 'jade']);
+  grunt.registerTask('default', ['jshint', 'mochaTest', 'jade', 'less']);
 };
